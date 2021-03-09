@@ -31,12 +31,12 @@ const BordaDesenhada = side => {
 
 // -------------tabuleiro-----------------------------------//
 
-let paramX = prompt("selecione o eixo X");
-paramX 
-let paramY = prompt("selecione o eixo Y");
-paramY
+let param = prompt("selecione os eixos Y e X")
+  .replace(/([^\d])+/gim,'');
 
-console.log(paramX, paramY)
+let paramY = param.substring(0,1)
+let paramX = param.substring(1,2)
+
 
 const limite = i => i > -1 && i < 8;
 
@@ -96,7 +96,7 @@ const tour = (r, c, moves, moveNumber, board, side) => {
   setTimeout(() => {
       
     tour(nextR, nextC, moves, moveNumber + 1, board, side);
-    console.log(r + 1, c +1)
+    //console.log(r + 1, c +1)
 
     let amzR = []
     let amzC = [] 
@@ -105,7 +105,7 @@ const tour = (r, c, moves, moveNumber, board, side) => {
     amzC [amzC.length] = c
 
     if(amzR && amzC == (nextR,nextC)){
-      alert('DUPLICADO, POR FAVOR, SELECIONE OUTRO PARAMETRO')
+      //alert('DUPLICADO, POR FAVOR, SELECIONE OUTRO PARAMETRO')
     }    
 
   }, 500);
@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
   BordaDesenhada(side);
   const board = estadoInicial(moves);
 
-  tour(paramX, paramY, moves, 1, board, side);  
+  tour(paramY -1, paramX -1, moves, 1, board, side);  
   
   
 });
