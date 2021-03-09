@@ -96,7 +96,7 @@ const tour = (r, c, moves, moveNumber, board, side) => {
   setTimeout(() => {
       
     tour(nextR, nextC, moves, moveNumber + 1, board, side);
-    //console.log(r + 1, c +1)
+    console.log(r + 1, c +1)
 
     let amzR = []
     let amzC = [] 
@@ -105,7 +105,7 @@ const tour = (r, c, moves, moveNumber, board, side) => {
     amzC [amzC.length] = c
 
     if(amzR && amzC == (nextR,nextC)){
-      //alert('DUPLICADO, POR FAVOR, SELECIONE OUTRO PARAMETRO')
+      alert('DUPLICADO, POR FAVOR, SELECIONE OUTRO PARAMETRO')
     }    
 
   }, 500);
